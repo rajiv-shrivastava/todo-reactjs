@@ -23,7 +23,7 @@ export default class TodoItem extends React.Component {
         return(
           <span>
           <button onClick={this.toEdit.bind(this)} > Edit</button>
-          <button> Cancel  </button>
+          <button onClick={this.todelete.bind(this)}> Delete  </button>
           </span>
         );
       }
@@ -76,6 +76,12 @@ export default class TodoItem extends React.Component {
         this.setState({
           isEditing: false
         });
+     }
+     todelete()
+     {
+       const task_todelete = this.props.task;
+      this.props.deleteTask(task_todelete);
+
      }
 
       toEdit()

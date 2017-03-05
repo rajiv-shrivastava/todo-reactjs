@@ -28,7 +28,9 @@ constructor(props){
 
            <TodoList todos={this.state.todos}
            toggleProp={this.toggleTask.bind(this)}
-           edit_task={this.editTask.bind(this)}/>
+           edit_task={this.editTask.bind(this)}
+          deleteTask={this.deleteTask.bind(this)}
+           />
 
          </div>
          );
@@ -53,7 +55,15 @@ constructor(props){
       this.setState({
         todos: this.state.todos
       });
-    
+
+  }
+
+  deleteTask(task_todelete)
+  {
+    _.remove(this.state.todos, todo => todo.task === task_todelete)
+    this.setState({
+      todos: this.state.todos
+    })
   }
 
   toggleTask(task)
